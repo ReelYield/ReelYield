@@ -13,7 +13,7 @@
             color: #333;
         }
         header {
-            background-color: #007bff;
+            background-color: #6650a4; /* Purple40 from app theme for header */
             color: white;
             text-align: center;
             padding: 60px 20px;
@@ -25,6 +25,23 @@
         header p {
             font-size: 1.2em;
         }
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .fish-icon {
+            max-width: 200px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+        .app-icon {
+            max-width: 150px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
         section {
             max-width: 1200px;
             margin: 40px auto;
@@ -34,8 +51,8 @@
             border-radius: 8px;
         }
         h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
+            color: #6650a4; /* Purple40 for headings */
+            border-bottom: 2px solid #6650a4;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
@@ -44,37 +61,41 @@
             padding-left: 20px;
         }
         .highlight {
-            background-color: #e9f7ff;
+            background-color: #d0bcff; /* Purple80 light for highlights */
             padding: 20px;
-            border-left: 5px solid #007bff;
+            border-left: 5px solid #6650a4;
             margin: 20px 0;
             font-size: 1.1em;
+            color: #333;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
+            background-color: #6650a4; /* Purple40 for footer */
             color: white;
         }
         @media (max-width: 768px) {
             header h1 { font-size: 2em; }
             header p { font-size: 1em; }
             section { padding: 15px; }
+            .logo { max-width: 200px; }
+            .fish-icon { max-width: 150px; }
+            .app-icon { max-width: 100px; }
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="reelyield_logo.png" alt="ReelYield Logo" class="logo"> <!-- Replace with actual image path or base64 -->
         <h1>ReelYield: Your Ultimate Fishing Companion</h1>
         <p>Log catches, analyze stats, and gear up for success on the water.</p>
+        <img src="justthefish.png" alt="Fish Graphic" class="fish-icon"> <!-- Replace with actual image path or base64 -->
     </header>
-
     <section id="about">
         <h2>About ReelYield</h2>
         <p>ReelYield is a comprehensive Android app designed for fishermen to track their catches, view detailed statistics, and optimize their fishing trips. Whether you're a casual angler or a serious enthusiast, ReelYield helps you improve your yield by providing tools to log data, visualize patterns, and prepare your tackle.</p>
         <p>Built with modern Android technologies, the app features an intuitive interface for logging species, locations, tides, weather conditions, and more. Export your logs, view maps of your catches, and get real-time marine insights—all in one place.</p>
     </section>
-
     <section id="features">
         <h2>Key Features</h2>
         <ul>
@@ -86,21 +107,19 @@
             <li><strong>Tackle Up:</strong> Organize your gear with checklists and quick access to purchase essentials.</li>
         </ul>
     </section>
-
     <section id="highlight">
         <h2>Shop Tackle from TackleDirect</h2>
         <div class="highlight">
             <p>ReelYield makes gearing up effortless! In the "Tackle Up" section, browse and purchase high-quality fishing tackle directly from TackleDirect—America's leading online tackle retailer. From rods and reels to lures and lines, get everything you need with seamless integration, exclusive deals, and fast shipping. Never hit the water unprepared again!</p>
-            <p><a href="https://www.tackledirect.com/" target="_blank" style="color: #007bff; text-decoration: none;">Visit TackleDirect Now</a></p>
+            <p><a href="https://www.tackledirect.com/" target="_blank" style="color: #6650a4; text-decoration: none;">Visit TackleDirect Now</a></p>
         </div>
     </section>
-
     <section id="download">
         <h2>Get Started</h2>
         <p>Download ReelYield today from the Google Play Store and start reeling in bigger yields!</p>
-        <p><a href="#" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Download Now</a></p>
+        <img src="app_icon.png" alt="ReelYield App Icon" class="app-icon"> <!-- Replace with actual image path or base64 -->
+        <p><a href="#" style="background-color: #6650a4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Download Now</a></p>
     </section>
-
     <footer>
         <p>&copy; 2026 ReelYield App. All rights reserved. Developed by Charles in Narragansett, RI.</p>
     </footer>
