@@ -35,164 +35,137 @@
         .fish-icon {
             max-width: 200px;
             height: auto;
-            margin: 20px 0;
+            margin: 20px auto;
+            display: block;
         }
-        nav {
-            background-color: #625b71; /* PurpleGrey40 */
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            color: #6650a4;
-            text-align: center;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        .feature {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 300px;
-            text-align: center;
+        .app-icon {
+            max-width: 150px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
         }
         .screenshot {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            max-width: 300px;
+            height: auto;
+            margin: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .video-container {
+            text-align: center;
             margin: 20px 0;
         }
-        .highlight {
-            background: #e8eaf6;
+        video {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        section {
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
-            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #6650a4; /* Purple40 from Color.kt */
+            border-bottom: 2px solid #6650a4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .highlight {
+            background-color: #d0bcff; /* Purple80 from Color.kt */
+            padding: 20px;
+            border-left: 5px solid #6650a4;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .gallery {
             text-align: center;
         }
         footer {
-            background-color: #6650a4;
-            color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
-        }
-        footer a {
+            background-color: #6650a4; /* Purple40 from Color.kt */
             color: white;
-            text-decoration: underline;
         }
         @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-                align-items: center;
-            }
+            header h1 { font-size: 2em; }
+            header p { font-size: 1em; }
+            section { padding: 15px; }
+            .logo { max-width: 200px; }
+            .fish-icon { max-width: 150px; }
+            .app-icon { max-width: 100px; }
+            .screenshot { max-width: 100%; margin: 10px 0; }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <img src="reelyield_logo.png" alt="ReelYield Logo" class="logo">
-        <h1>ReelYield</h1>
-        <p>Log your catches • Analyze patterns • Improve your yield</p>
-        <img src="justthefish.png" alt="Striped Bass Icon" class="fish-icon">
+        <img src="reelyield_logo.png" alt="ReelYield Logo" class="logo"> <!-- Logo from project sources -->
+        <h1>ReelYield: Your Ultimate Fishing Companion</h1>
+        <p>Log catches, analyze stats, and gear up for success on the water.</p>
+        <img src="justthefish.png" alt="Fish Graphic" class="fish-icon"> <!-- Fish illustration from project sources -->
     </header>
-
-    <nav>
-        <a href="#features">Features</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="#highlight">Tackle Up</a>
-        <a href="#download">Download</a>
-    </nav>
-
+    <section id="about">
+        <h2>About ReelYield</h2>
+        <p>ReelYield is a comprehensive Android app designed for fishermen to track their catches, view detailed statistics, and optimize their fishing trips. Whether you're a casual angler or a serious enthusiast, ReelYield helps you improve your yield by providing tools to log data, visualize patterns, and prepare your tackle.</p>
+        <p>Built with modern Android technologies, the app features an intuitive interface for logging species, locations, tides, weather conditions, and more. Export your logs, view maps of your catches, and get real-time marine insights—all in one place.</p>
+    </section>
     <section id="features">
-        <h2>Why ReelYield?</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>Log Every Catch</h3>
-                <p>Record species, size, location, tide, moon phase, bait & more — all in seconds.</p>
-            </div>
-            <div class="feature">
-                <h3>Smart Statistics</h3>
-                <p>Discover your most productive tides, moon phases, baits, colors, times of day, and rigs.</p>
-            </div>
-            <div class="feature">
-                <h3>Interactive Map</h3>
-                <p>See exactly where your best fish came from — plan your next trip smarter.</p>
-            </div>
-            <div class="feature">
-                <h3>Tides & Weather</h3>
-                <p>Real-time NOAA tide predictions and marine weather — right in the app.</p>
-            </div>
-            <div class="feature">
-                <h3>Hall of Fame</h3>
-                <p>Track personal bests for every species you catch.</p>
-            </div>
-            <div class="feature">
-                <h3>Tackle Up</h3>
-                <p>Browse and buy quality gear directly from TackleDirect — never go under-gunned again.</p>
-            </div>
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Log Catches:</strong> Easily record species, location (with GPS), tide, water temp, wind, length, weight, moon phase, rig/jig, bait, and photos.</li>
+            <li><strong>View Catch Log:</strong> Browse, edit, delete, and export your catches to CSV for analysis.</li>
+            <li><strong>Interactive Map:</strong> Visualize your catches on a Google Map with markers and details.</li>
+            <li><strong>Tides & Marine Weather:</strong> Get real-time tide predictions, water temperature, wind data, and forecasts from NOAA stations near your location.</li>
+            <li><strong>Statistics:</strong> Analyze your data for best tides, moon phases, times, rigs, and baits to create informed fishing plans.</li>
+            <li><strong>Tackle Up:</strong> Organize your gear with checklists and quick access to purchase essentials.</li>
+        </ul>
+    </section>
+    <section id="demo">
+        <h2>Demo Video</h2>
+        <div class="video-container">
+            <video controls>
+                <source src="grok-video-(2).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
-
-    <section id="screenshots">
-        <h2>See It In Action</h2>
-        <div style="text-align: center;">
-            <!-- Replace with your actual screenshot filenames or URLs -->
-            <img src="screenshot1.png" alt="App Screenshot 1" class="screenshot">
-            <img src="screenshot2.png" alt="App Screenshot 2" class="screenshot">
-            <img src="screenshot3.png" alt="App Screenshot 3" class="screenshot">
+    <section id="preview">
+        <h2>App Preview</h2>
+        <div class="gallery">
+            <img src="screenshot_main_menu.png" alt="Main Menu Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_add_catch.png" alt="Add Catch Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_catch_details.png" alt="Catch Details Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_tides.png" alt="Tides Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_marine_weather.png" alt="Marine Weather Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_statistics.png" alt="Statistics Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
+            <img src="screenshot_fish_photo.png" alt="Fish Photo Screenshot" class="screenshot"> <!-- Screenshot from project sources -->
         </div>
     </section>
-
     <section id="highlight">
         <h2>Shop Tackle from TackleDirect</h2>
         <div class="highlight">
             <p>ReelYield makes gearing up effortless! In the "Tackle Up" section, browse and purchase high-quality fishing tackle directly from TackleDirect—America's leading online tackle retailer. From rods and reels to lures and lines, get everything you need with seamless integration, exclusive deals, and fast shipping. Never hit the water unprepared again!</p>
-            <p><a href="https://www.tackledirect.com/" target="_blank" style="color: #6650a4; text-decoration: none; font-weight: bold;">Visit TackleDirect Now</a></p>
+            <p><a href="https://www.tackledirect.com/" target="_blank" style="color: #6650a4; text-decoration: none;">Visit TackleDirect Now</a></p>
         </div>
     </section>
-
     <section id="download">
         <h2>Get Started</h2>
         <p>Download ReelYield today from the Google Play Store and start reeling in bigger yields!</p>
-        <p>
-            <a href="#" style="background-color: #6650a4; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-size: 1.1em; font-weight: bold;">
-                Download on Google Play
-            </a>
-        </p>
-        <p style="margin-top: 24px; font-size: 0.95em;">
-            By downloading or using ReelYield, you agree to our 
-            <a href="https://reelyield.app/privacy-policy.html" target="_blank" style="color: #6650a4; font-weight: bold; text-decoration: underline;">
-                Privacy Policy
-            </a>
-        </p>
+        <p><a href="#" style="background-color: #6650a4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Download Now</a></p>
     </section>
-
     <footer>
-        <p>© 2026 ReelYield App. All rights reserved. Developed by Charles in Narragansett, RI.</p>
-        <p>
-            <a href="https://reelyield.app/privacy-policy.html" target="_blank" style="color: white; font-weight: bold;">Privacy Policy</a>
-            •
-            <a href="#" target="_blank" style="color: white;">Terms of Use</a>
-        </p>
+        <p>&copy; 2026 ReelYield App. All rights reserved. Developed by Charles in Narragansett, RI.</p>
     </footer>
-
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c4c4f494986728c',t:'MTc2OTU1OTQ3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
