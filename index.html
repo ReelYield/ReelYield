@@ -40,13 +40,22 @@
             background-size: cover;
         }
 
-        .logo { max-width: 280px; margin: 0 auto 1.5rem; display: block; }
+        .logo {
+            max-width: 380px;           /* Made larger and the only branding element */
+            width: 85%;
+            margin: 0 auto 2rem;
+            display: block;
+        }
 
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 1.5rem; opacity: 0.95; }
+        header p {
+            font-size: 1.4rem;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
 
         .hero-video {
-            max-width: 320px;
+            max-width: 340px;
             width: 100%;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -66,7 +75,6 @@
             transition: all 0.3s;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
             cursor: pointer;
-            position: relative;
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
         .btn-disabled {
@@ -175,8 +183,9 @@
         footer a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.4rem; }
+            .logo { max-width: 300px; }
             header { padding: 4rem 1rem 3rem; }
+            header p { font-size: 1.25rem; }
             .btn { padding: 0.9rem 1.8rem; font-size: 1.1rem; }
             .hero-video { max-width: 280px; }
             #download { padding: 4rem 1.5rem; }
@@ -187,7 +196,7 @@
 
 <header>
     <img src="reelyield_logo.png" alt="ReelYield Logo" class="logo">
-    <h1>ReelYield</h1>
+    
     <p>Track every catch. Analyze your patterns. Maximize your yield — all in one powerful fishing log app.</p>
     
     <video class="hero-video" autoplay muted playsinline preload="auto" poster="Screenshot_main_menu.jpg">
