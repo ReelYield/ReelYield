@@ -1,126 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Copyright © 2026 Charles Ilgenfritz. All rights reserved. This website and its content (including code, images, and text) may not be copied, reproduced, or used without written permission. Developed for ReelYield app in West Kingston, RI. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReelYield - Fishing Log App</title>
-    <link rel="icon" href="web_icon.png" type="image/png">
+    <title>ReelYield - Fishing Log & Yield Tracker App</title>
+    <link rel="icon" href="web_icon2.png" type="image/png">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        :root {
+            --primary: #6650a4;
+            --accent: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
         header {
-            background-color: #6650a4;
+            background: linear-gradient(135deg, var(--primary) 0%, #4c1d95 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 6rem 1.5rem 5rem;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { font-size: 1.2em; }
 
-        .logo { max-width: 300px; margin-bottom: 20px; }
-        .fish-icon { max-width: 200px; margin: 20px auto; display: block; }
-        .app-icon { max-width: 150px; margin: 20px auto; display: block; }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.07)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat;
+            background-size: cover;
+        }
 
-        .screenshot {
-            max-width: 300px;
-            margin: 20px;
+        .logo-container {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 24px;
+            padding: 1.8rem 2.5rem;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
             display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            margin: 0 auto 2.5rem;
         }
 
-        .video-container { text-align: center; margin: 20px 0; }
+        .logo {
+            max-width: 760px;
+            width: 90%;
+            display: block;
+        }
+
+        header p {
+            font-size: 1.45rem;
+            max-width: 760px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+        }
+
+        .hero-video {
+            max-width: 360px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            font-weight: bold;
+            padding: 1.1rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 1rem 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+        .btn-disabled {
+            background: #e2e8f0;
+            color: #64748b;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            font-weight: bold;
+            padding: 0.7rem 1.6rem;
+            border-radius: 999px;
+            font-size: 1.3rem;
+            margin: 1.2rem 0;
+            box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+        }
+
+        .coming-soon-text {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin: 0.6rem 0 1.8rem;
+        }
 
         section {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        #download {
+            background: #f1f5f9;
+            border-radius: 16px;
+            text-align: center;
+            padding: 5rem 2rem;
         }
 
         h2 {
-            color: #6650a4;
-            border-bottom: 2px solid #6650a4;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 2.5rem;
+            position: relative;
         }
+        h2::after {
+            content: "";
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-8px); }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .screenshot {
+            max-width: 320px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.4s;
+        }
+        .screenshot:hover { transform: scale(1.04); }
 
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #6650a4;
+            background: var(--primary);
             color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 5rem;
         }
+        footer a {
+            color: #c4b5fd;
+            text-decoration: none;
+            margin: 0 0.8rem;
+        }
+        footer a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2em; }
-            header p { font-size: 1em; }
-            section { padding: 15px; }
-            .screenshot { max-width: 100%; margin: 10px 0; }
+            .logo-container { padding: 1.2rem 1.8rem; }
+            .logo { max-width: 90%; }
+            header { padding: 4rem 1rem 3.5rem; }
+            header p { font-size: 1.3rem; }
+            .btn { padding: 1rem 2rem; font-size: 1.15rem; }
+            .hero-video { max-width: 300px; }
+            #download { padding: 4rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container { margin-bottom: 2rem; }
         }
     </style>
 </head>
-
 <body>
 
 <header>
-    <img src="reelyield_logo.png" class="logo">
-    <h1>ReelYield: Your Ultimate Fishing Companion</h1>
-    <p>Log catches, analyze stats, and gear up for success on the water.</p>
-    <img src="justthefish.png" class="fish-icon">
+    <div class="logo-container">
+        <img src="reelyield_logo.png" alt="ReelYield Logo" class="logo">
+    </div>
+    
+    <p>Track every catch. Analyze your patterns. Maximize your yield — all in one powerful fishing log app.</p>
+    
+    <video class="hero-video" autoplay muted playsinline preload="auto" poster="Screenshot_main_menu.jpg">
+        <source src="fish_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div>
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="coming-soon-text">Available on Google Play soon</div>
+        <a href="#" class="btn btn-disabled">Download on Google Play</a>
+        <a href="#preview" class="btn btn-outline">View Screenshots</a>
+    </div>
 </header>
 
-<section id="about">
-    <h2>About ReelYield</h2>
-    <p>ReelYield is a comprehensive Android app designed for fishermen to track their catches, view detailed statistics, and optimize their fishing trips.</p>
-</section>
-
 <section id="features">
-    <h2>Key Features</h2>
-    <ul>
-        <li>Log Catches</li>
-        <li>Interactive Map</li>
-        <li>Tides & Marine Weather</li>
-        <li>Statistics & Insights</li>
-        <li>Tackle Planning Tools</li>
-    </ul>
-</section>
-
-<section id="demo">
-    <h2>Demo Video</h2>
-    <div class="video-container">
-        <video controls>
-            <source src="grok-video-(2).mp4" type="video/mp4">
-        </video>
+    <h2>Why ReelYield?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Smart Catch Logging</h3>
+            <p>Record species, length, tide, bait, weather, moon phase — everything that matters — with one tap.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Personal Statistics</h3>
+            <p>Discover your most productive tides, moon phases, rigs, baits, colors, and times of day.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Offline Map & Pins</h3>
+            <p>Mark and revisit your best spots — works offline, no data upload ever.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Tides & Marine Weather</h3>
+            <p>Real-time NOAA/NWS data for tides, wind, temp — right where you're fishing.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Privacy First</h3>
+            <p>All data stays on your device — no servers, no cloud, no tracking.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Hall of Fame</h3>
+            <p>Celebrate your personal bests and biggest yields.</p>
+        </div>
     </div>
 </section>
 
 <section id="preview">
-    <h2>App Preview</h2>
+    <h2>App Screenshots</h2>
     <div class="gallery">
-        <img src="screenshot_main_menu.png" class="screenshot">
-        <img src="screenshot_add_catch.png" class="screenshot">
-        <img src="screenshot_statistics.png" class="screenshot">
+        <img src="Screenshot_main_menu.jpg" alt="Main Menu" class="screenshot">
+        <img src="Screenshot_Add_Catch.jpg" alt="Add New Catch" class="screenshot">
+        <img src="Screenshot_Statistics.jpg" alt="Catch Statistics" class="screenshot">
+        <img src="Screenshot_Map.jpg" alt="Catch Map View" class="screenshot">
+        <img src="Screenshot_Log.jpg" alt="Catch Log" class="screenshot">
+        <img src="Screenshot_Tides.jpg" alt="Tides Information" class="screenshot">
+        <img src="Screenshot_Weather.jpg" alt="Marine Weather" class="screenshot">
+        <img src="Screenshot_Details.jpg" alt="Catch Details" class="screenshot">
     </div>
 </section>
 
 <section id="download">
-    <h2>Get Started</h2>
-    <p>Download ReelYield today from the Google Play Store and start reeling in bigger yields!</p>
+    <h2>Start Reeling in More</h2>
+    <div class="coming-soon-badge" style="font-size:1.8rem; padding:0.9rem 2rem; margin:1.5rem 0;">Coming Soon</div>
+    <p style="font-size:1.3rem; max-width:700px; margin:1rem auto 2.5rem;">
+        ReelYield is coming to Google Play very soon — get ready to log your best catches!
+    </p>
+    <a href="#" class="btn btn-disabled" style="font-size:1.4rem; padding:1.2rem 3rem;">
+        Get ReelYield on Google Play
+    </a>
 </section>
 
 <footer>
-    <p>© 2026 ReelYield App. All rights reserved. Developed by Charles in West Kingston, RI.</p>
-    <p><a href="privacy-policy.html" style="color: #e0d0ff;">Privacy Policy</a></p>
+    <p>© 2026 ReelYield App. All rights reserved. Developed by Ilgenfritz LLC, in West Kingston, RI.</p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> • <a href="mailto:Ilgebay@gmail.com">Contact</a></p>
 </footer>
 
 </body>
